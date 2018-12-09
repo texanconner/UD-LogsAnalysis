@@ -29,12 +29,12 @@ errorRate > 1;"
 
 
 def reporter(report):
-	db = psycopg2.connect("dbname=news")
-	c = db.cursor()
-	c.execute(report)
-	query = c.fetchall()
-	db.close()
-	return query
+    db = psycopg2.connect("dbname=news")
+    c = db.cursor()
+    c.execute(report)
+    query = c.fetchall()
+    db.close()
+    return query
 
 
 # Function prints the request data
@@ -43,50 +43,50 @@ def reporter(report):
 
 
 def printData(reportData):
-	index = 0
-	for reportDatas in reportData:
-		print('%-40s%-10s' % ("{0}".format(dataReturn[index][0]), "{0}".format(dataReturn[index][1])))
-		index += 1
-	print('\n\n')
+    index = 0
+    for reportDatas in reportData:
+        print('%-40s%-10s' % ("{0}".format(dataReturn[index][0]), "{0}".format(dataReturn[index][1]))) # noqa
+        index += 1
+    print('\n\n')
 
 
 # Display menu tree for User. Initialize the selection, the ask users for
 # options 1 through 4.
 selection = 0
 while selection != 4:
-	try:
-		print("Select a report.\n1. Most Viewed Articles\n2. Most Viewed Authors\
-			\n3. HTTP Request Errors Report\n\nPress '4' to exit")
-		selection = input("-->")
-		# Article Report
-		if selection == 1:
-			print("Running Report... Please wait.\n")
-			dataReturn = reporter(mostViewedArticlesReport)
-			print('%-40s%-10s' % ("Article", "Views"))
-			printData(dataReturn)
-			continue
-		# Author Report
-		if selection == 2:
-			print("Running Report... Please wait.\n")
-			dataReturn = reporter(mostViewedAuthorReport)
-			print('%-40s%-10s' % ("Author", "Views"))
-			printData(dataReturn)
-			continue
-		# HTTP Error Report
-		if selection == 3:
-			print("Running Report... Please wait.\n")
-			dataReturn = reporter(requestErrorReport)
-			print('%-40s%-10s' % ("Date", "Error Rate (%)"))
-			printData(dataReturn)
-			continue
-		# Exit Program
-		if selection == 4:
-			exit()
-		# Any other input besides our 4 choices are invalid. Return to top of loop.
-		else:
-			print("Invalid Input.")
-			continue
-	except:
-		print("Invalid Input")
-		continue
-		
+    try:
+        print("Select a report.\n1. Most Viewed Articles\n2. Most Viewed Authors\
+        \n3. HTTP Request Errors Report\n\nPress '4' to exit")
+        selection = input("-->")
+        # Article Report
+        if selection == 1:
+            print("Running Report... Please wait.\n")
+            dataReturn = reporter(mostViewedArticlesReport)
+            print('%-40s%-10s' % ("Article", "Views"))
+            printData(dataReturn)
+            continue
+        # Author Report
+        if selection == 2:
+            print("Running Report... Please wait.\n")
+            dataReturn = reporter(mostViewedAuthorReport)
+            print('%-40s%-10s' % ("Author", "Views"))
+            printData(dataReturn)
+            continue
+        # HTTP Error Report
+        if selection == 3:
+            print("Running Report... Please wait.\n")
+            dataReturn = reporter(requestErrorReport)
+            print('%-40s%-10s' % ("Date", "Error Rate (%)"))
+            printData(dataReturn)
+            continue
+        # Exit Program
+        if selection == 4:
+            exit()
+        # Any other input besides our 4 choices are invalid.
+        # Return to top of loop.
+        else:
+            print("Invalid Input.")
+            continue
+    except:
+        print("Invalid Input")
+        continue
