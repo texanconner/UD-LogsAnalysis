@@ -1,0 +1,56 @@
+vagrant@vagrant:/vagrant$ python newsReport.py
+Select a report.
+1. Most Viewed Articles
+2. Most Viewed Authors
+3. HTTP Request Errors Report
+
+Press '4' to exit
+-->1
+Running Report... Please wait.
+
+Article                                 Views
+Candidate is jerk, alleges rival        342102
+Bears love berries, alleges bear        256365
+Bad things gone, say good people        171762
+
+
+
+Select a report.
+1. Most Viewed Articles
+2. Most Viewed Authors
+3. HTTP Request Errors Report
+
+Press '4' to exit
+-->2
+Running Report... Please wait.
+
+Author                                  Views
+Ursula La Multa                         512805
+Rudolf von Treppenwitz                  427781
+Anonymous Contributor                   171762
+Markoff Chaney                          85387
+
+
+
+Select a report.
+1. Most Viewed Articles
+2. Most Viewed Authors
+3. HTTP Request Errors Report
+
+Press '4' to exit
+-->3
+Running Report... Please wait.
+
+Date                                    Error Rate (%)
+2016-07-17                              2
+
+
+
+Select a report.
+1. Most Viewed Articles
+2. Most Viewed Authors
+3. HTTP Request Errors Report
+
+Press '4' to exit
+-->4
+vagrant@vagrant:/vagrant$
