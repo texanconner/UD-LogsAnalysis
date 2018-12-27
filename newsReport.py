@@ -4,7 +4,7 @@ import psycopg2
 
 # SQL code for Preset Reports
 # 1. Most viewed articles.
-#	 Returns the top 3 viewed articles in descending order. [Article - Views]
+# Returns the top 3 viewed articles in descending order. [Article - Views]
 mostViewedArticlesReport = "select title, count(*) as views from log join \
 articles on log.path like concat('%', articles.slug, '%') group by title \
 order by views DESC limit 3;"
@@ -45,7 +45,8 @@ def reporter(report):
 def printData(reportData):
     index = 0
     for reportDatas in reportData:
-        print('%-40s%-10s' % ("{0}".format(dataReturn[index][0]), "{0}".format(dataReturn[index][1]))) # noqa
+        print('%-40s%-10s' % ("{0}".format(dataReturn[index][0]), "{0}\
+        ".format(dataReturn[index][1])))
         index += 1
     print('\n\n')
 
@@ -55,8 +56,8 @@ def printData(reportData):
 selection = 0
 while selection != 4:
     try:
-        print("Select a report.\n1. Most Viewed Articles\n2. Most Viewed Authors\
-        \n3. HTTP Request Errors Report\n\nPress '4' to exit")
+        print("Select a report.\n1. Most Viewed Articles\n2. Most Viewed\
+ Authors\n3. HTTP Request Errors Report\n\nPress '4' to exit")
         selection = input("-->")
         # Article Report
         if selection == 1:
@@ -87,6 +88,6 @@ while selection != 4:
         else:
             print("Invalid Input.")
             continue
-    except:
-        print("Invalid Input")
+    except:  # noqa: E722
+        print("Goodbye")
         continue
