@@ -17,7 +17,7 @@ The Zip file with database can be downloaded from here: https://d17h27t6h515a5.c
 Unzip this in your vagrant directory. 
 
 From your vagrant directory, run this command to setup the database.
-'''psql -d news -f newsdata.sql'''
+'psql -d news -f newsdata.sql'
 
 The news database should be set up and ready for SQL commands now.
 
