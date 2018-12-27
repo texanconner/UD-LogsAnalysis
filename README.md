@@ -14,9 +14,8 @@ This program can create 3 reports from existing database data.
 
 The program assumes you have a database named 'news' already populated and in the same location as this program. To create this database, 
 The Zip file with database can be downloaded from here: https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip
-Unzip this in your vagrant directory. 
 
-From your vagrant directory, run this command to setup the database.
+Unzip this in your vagrant directory. From your vagrant directory, run this command to setup the database.
 ```psql -d news -f newsdata.sql```
 
 The news database should be set up and ready for SQL commands now.
