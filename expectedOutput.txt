@@ -9,9 +9,9 @@ Press '4' to exit
 Running Report... Please wait.
 
 Article                                 Views
-Candidate is jerk, alleges rival        342102
-Bears love berries, alleges bear        256365
-Bad things gone, say good people        171762
+Candidate is jerk, alleges rival        338647
+Bears love berries, alleges bear        253801
+Bad things gone, say good people        170098
 
 
 
