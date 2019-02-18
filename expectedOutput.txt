@@ -25,10 +25,10 @@ Press '4' to exit
 Running Report... Please wait.
 
 Author                                  Views
-Ursula La Multa                         512805
-Rudolf von Treppenwitz                  427781
-Anonymous Contributor                   171762
-Markoff Chaney                          85387
+Ursula La Multa                         507594
+Rudolf von Treppenwitz                  423457
+Anonymous Contributor                   170098
+Markoff Chaney                          84557
 
 
 
