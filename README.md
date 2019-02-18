@@ -8,7 +8,28 @@ This program can create 3 reports from existing database data.
 * Python (Tested with Python3.7)
 * Python Library psycopg2 installed (A PostgreSQL adapter for the Python programming language)
 * Vagrant (for a virtual machine)
+* PostgreSQL
+* Python Module psycopg2 `pip install psycopg2`
 
+# VM and Vagrant Setup
+Virtual box can be found and installed from here:
+https://www.virtualbox.org/wiki/Download_Old_Builds_5_1
+
+Vagrant can be found and installed from here:
+https://www.vagrantup.com/downloads.html
+
+We'll need the vagrant file for this VM configuration.
+Clone this repo and inside will be the VM files:
+https://github.com/udacity/fullstack-nanodegree-vm
+
+After cloning to your local drive, navigate to the vagrant folder in that repo.
+
+Once in the Vagrant directory, use the `vagrant up` command.
+Once the VM is up, next use the `vagrant ssh` command.
+
+The VM should be set up to work with the database now. 
+
+Add the files from this repo to the vagrant folder.
 
 # Database Setup:
 
