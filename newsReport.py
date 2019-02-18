@@ -5,22 +5,41 @@ import psycopg2
 # SQL code for Preset Reports
 # 1. Most viewed articles.
 # Returns the top 3 viewed articles in descending order. [Article - Views]
-mostViewedArticlesReport = "select title, count(*) as views from log join \
-articles on log.path like concat('%', articles.slug, '%') group by title \
-order by views DESC limit 3;"
+
+mostViewedArticlesReport = """SELECT title, count(*) AS views
+    FROM log join articles ON log.path
+    LIKE concat('%', articles.slug, '%')
+    AND log.status='200 OK'
+    GROUP BY title
+    ORDER BY views DESC limit 3;"""
+
+
 # 2. Most Viewed Author.
 # 	Returns the views per author in descending order. [Author - Views]
-mostViewedAuthorReport = "select name, totalViews.views from authors left \
-join (select articles.author, count(*) as views from log  join articles \
-on log.path like concat('%', articles.slug, '%')  group by \
-articles.author) as totalViews on authors.id = totalViews.author \
-order by totalViews.views DESC;"
+
+mostViewedAuthorReport = """SELECT name, totalViews.views
+    FROM authors LEFT JOIN (
+        SELECT articles.author, count(*) AS views
+        FROM log join articles ON log.path
+        LIKE concat('%', articles.slug, '%')
+        AND log.status='200 OK'
+        GROUP BY articles.author) AS totalViews
+    ON authors.id = totalViews.author
+    ORDER BY totalViews.views DESC;"""
+
+
 # 3. HTTP Error Report. Returns the date and rate of page request errors
 # Where the error rate is over 1%. [Date - Error Rate]
-requestErrorReport = "select date, errorRate from (select cast(time as date) \
-as date, (count(case when status = '404 NOT FOUND' then 1 end) * 100 / \
-count(status)) as errorRate from log group by date) as errorReport where \
-errorRate > 1;"
+
+requestErrorReport = """SELECT date, errorRate
+    FROM (
+        SELECT cast(time AS date) AS date,
+        (count(case when status = '404 NOT FOUND' then 1 end) * 100
+            / count(status))
+        AS errorRate
+        FROM log
+        GROUP BY date) AS errorReport
+    WHERE errorRate > 1;"""
 
 # Function takes in a string of sql commands, connects to a database,
 # Runs the sql commands and returns the result.
